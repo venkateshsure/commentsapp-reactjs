@@ -1,0 +1,63 @@
+/* Write your CSS here */
+.comment-app {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-app-block {
+  display: flex;
+  width: 80%;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  background-color: #cbd2d9;
+}
+
+.comment-app-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 80%;
+}
+
+.input-con {
+  margin: 5px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.head {
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #1e293b;
+  margin: 5px;
+}
+
+.para {
+  font-size: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  color: #475569;
+  margin: 5px;
+}
+
+.but {
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 9px;
+}
+
+.img {
+  width: 400px;
+  height: 400px;
+  flex-shrink: 1;
+}
