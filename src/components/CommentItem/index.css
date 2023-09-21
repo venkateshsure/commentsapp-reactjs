@@ -27,3 +27,69 @@
 }
 
 /* Write your CSS here */
+
+.list-con {
+  list-style-type: none;
+}
+
+.head-con {
+  display: flex;
+  flex-direction: row;
+}
+
+.initial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-top: 18px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.list-inner-con {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  margin: 0;
+}
+
+.body-con {
+  display: flex;
+  flex-direction: column;
+}
+
+.middle-con {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.gg-con {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like-con {
+  display: flex;
+  align-items: center;
+}
+
+.delete-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.like-icon {
+  width: 60px;
+  height: 60px;
+}

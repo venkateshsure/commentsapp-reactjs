@@ -1,42 +1,43 @@
 /* Write your CSS here */
 .comment-app {
-  height: 100vh;
   display: flex;
-  width: 100%;
-  align-items: center;
   justify-content: center;
+  margin-top: 48px;
 }
 
 .comment-app-block {
   display: flex;
-  width: 80%;
-  height: 500px;
-  align-items: center;
-  justify-content: center;
-  background-color: #cbd2d9;
+  flex-direction: column;
+  width: 90%;
 }
 
 .comment-app-con {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
   width: 80%;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .input-con {
   margin: 5px;
   width: 50%;
   cursor: pointer;
+  outline: none;
 }
 
 .head {
-  font-size: 20px;
+  font-size: 40px;
   font-family: 'Roboto';
   font-style: normal;
   color: #1e293b;
-  margin: 5px;
+  margin-bottom: 12px;
 }
 
 .para {
@@ -50,14 +51,36 @@
 .but {
   background-color: #0284c7;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 14px;
+  font-family: 'Roboto';
+  border-radius: 4px;
   border: none;
+  padding-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+
+  margin-top: 16px;
+  min-width: 100px;
+  align-self: flex-start;
+  outline: none;
   cursor: pointer;
-  padding: 9px;
 }
 
 .img {
   width: 400px;
   height: 400px;
   flex-shrink: 1;
+}
+
+.ul-con {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.comment-count {
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 2px;
 }

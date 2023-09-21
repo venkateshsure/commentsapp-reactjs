@@ -2,6 +2,8 @@ import {Component} from 'react'
 
 import {v4} from 'uuid'
 
+import {formatDistanceToNow} from 'date-fns'
+
 import CommentItem from '../CommentItem'
 
 import './index.css'
@@ -40,29 +42,62 @@ class Comments extends Component {
       id: v4(),
       input,
       textarea,
+      isLiked: false,
+      date: formatDistanceToNow(new Date()),
+      initialBackgroundColor:
+        initialContainerBackgroundClassNames[
+          Math.ceil(
+            Math.random() * initialContainerBackgroundClassNames.length - 1,
+          )
+        ],
     }
 
     this.setState(pre => ({
       initialList: [...pre.initialList, newComment],
+
       input: '',
       textarea: '',
     }))
   }
 
+  likedImageIcon = id => {
+    this.setState(pre => ({
+      initialList: pre.initialList.map(each => {
+        if (id === each.id) {
+          return {...each, isLiked: !each.isLiked}
+        }
+
+        return each
+      }),
+    }))
+  }
+
+  commentDelete = prop => {
+    const {initialList} = this.state
+
+    const filterList = initialList.filter(each => each.id !== prop)
+    this.setState({
+      initialList: filterList,
+    })
+  }
+
   render() {
     const {input, textarea, initialList} = this.state
+
     return (
       <div className="comment-app">
         <div className="comment-app-block">
+          <h1 className="head">Comments</h1>
+
           <div className="comment-app-con">
-            <h1 className="head">Comments</h1>
-            <p className="para">say something to 4.0 technologies</p>
-            <form onSubmit={this.commentSection}>
+            <form className="form" onSubmit={this.commentSection}>
+              <p className="para">say something to 4.0 technologies</p>
               <input
                 onChange={this.inputText}
                 className="input-con"
                 type="text"
                 placeholder="Your Name"
+                value={input}
               />
               <textarea
                 onChange={this.textareaText}
@@ -76,22 +111,27 @@ class Comments extends Component {
                 Add Comment
               </button>
             </form>
-          </div>
-          <img
-            className="img"
-            alt="comments"
-            src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
-          />
-        </div>
-        <ul>
-          {initialList.map(each => (
-            <CommentItem
-              key={each.id}
-              input={each.input}
-              textarea={each.textarea}
+            <img
+              className="img"
+              alt="comments"
+              src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"
             />
-          ))}
-        </ul>
+          </div>
+          <p>
+            <span className="comment-count">{initialList.length}</span> Comments
+          </p>
+
+          <ul className="ul-con">
+            {initialList.map(each => (
+              <CommentItem
+                key={each.id}
+                each={each}
+                commentDelete={this.commentDelete}
+                likedImageIcon={this.likedImageIcon}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     )
   }
